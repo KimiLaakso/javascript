@@ -1,0 +1,31 @@
+.otsikko {
+  max-width: 500px;
+  margin: auto;
+}
+.tyhjenna{
+max-width: 500px;
+margin:auto;
+padding: 8px 10px 8px 10px;
+}
+.lista{
+  list-style: circle;
+  max-width: 500px;
+  margin:auto;
+  font-size: 20px;
+  background: #AFEEEE;
+  border-radius: 10px;
+}
+
+
+input{
+  font-size: 20px;
+}
+.teenappi{
+
+  padding: 8px 10px 8px 10px;
+}
+body{
+  background-image: url("https://wallpapercave.com/wp/r1fMFxw.jpg");
+  background-size: auto;
+
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="css.css">
+  <script>
+  //Poista nappi poistaa yhen rivin
+  var close = document.getElementsByClassName("close");
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function sulje() {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+  }
+  function lisaarivi() {
+    var rivi = document.createElement("li");
+    var syotettyteksti = document.getElementById("syotettyteksti").value;
+    var teksti = document.createTextNode(syotettyteksti);
+    rivi.appendChild(teksti);
+
+    document.getElementById("lista").appendChild(rivi);
+    var nappi = document.createElement("button");
+
+    var teksti = document.createTextNode("Tehty");
+    nappi.className = "close";
+    nappi.appendChild(teksti);
+    rivi.appendChild(nappi);
+
+    for (i = 0; i < close.length; i++) {
+      close[i].onclick = function sulje() {
+        var div = this.parentElement;
+        div.style.display = "none";
+      }
+    }
+  }
+  //Tyhjennä koko lista
+  function tyhjenna(){
+    var rivi = document.getElementsByTagName("li");
+    for (i=0; rivi.length>i; i++)
+    rivi[i].style.display = "none"
+  }
+
+  </script>
+<body>
+  <div id="otsikko" class="otsikko">
+    <p>
+      <img src ="http://cit336.malorieaaron.com/public/images/to_do_list_logo.png" alt="logo" height="100" width="350">
+    </p>
+  <input type="text" onfocus="this.value=''" id="syotettyteksti">
+  <button onclick="lisaarivi()" class="teenappi">Lisää tehtävä</button>
+</div>
+<ul id="lista" class="lista">
+</ul>
+<div class="tyhjenna">
+  <button onclick="tyhjenna();" class="tyhjenna">Tyhjennä lista</button>
+</div>
+</body>
+</head>
+</html>
