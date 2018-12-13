@@ -1,0 +1,366 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="css.css">
+  <title>Finnkino</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript/css"></script>
+
+
+<Script>
+//Luodaan funktio joka näyttää helsingissä tulevat elokuvat
+//Tätä toistetaan jokaiseen eri kohteeseen
+    function itis(){
+      //api
+    var url = "https://www.finnkino.fi/xml/Schedule/?area=1045";
+      //Luodaan requesti
+ var xmlhttp = new XMLHttpRequest();
+  xmlhttp.open("GET", url, true);
+  xmlhttp.send();
+
+    xmlhttp.onreadystatechange = function(){
+   if(xmlhttp.readyState==4 && xmlhttp.status==200){
+        //otetaan data talteen
+        var xmldoc = xmlhttp.responseXML;
+        //luodaan muuttuja johon teksti ja kuvaasetetaan
+
+       var title="";
+        //haetaan kaikki title tagit
+       var kaikkititlet = xmldoc.getElementsByTagName("Title");
+        // esitysten alkuajat
+       var kaikkiajat = xmldoc.getElementsByTagName("dttmShowStart");
+        //Pienet posteri kuvat
+        var kaikkikuvat = xmldoc.getElementsByTagName("EventSmallImagePortrait");
+
+        //tehdää silmukka jossa tulostetaan ensin elokuvan title, sitten alkuaika, sitten posteri sen alle.
+       for (i=0;i<kaikkititlet.length; i++){
+          //posteri tallennetaan muuttujaan kuva
+          var kuva = kaikkikuvat[i].childNodes[0].nodeValue;
+          kuvat+="<img src="+kuva+" alt =virhe>";
+        title+="<u>"+kaikkititlet[i].childNodes[0].nodeValue + ", ALKAA "+ kaikkiajat[i].childNodes[0].nodeValue +"<br>"  + "<img src="+kuva+" alt =virhe class=kuva>" + "<br>" ;
+        //tulostetaan valittuun div-tagiin tiedot jotka on asetettu title muuttujaan
+     $("#valittuteatteri").html(title);
+      }
+     }
+   }
+}
+
+
+function kino(){
+  //api
+  var url = "https://www.finnkino.fi/xml/Schedule/?area=1031";
+  //Luodaan requesti
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+
+xmlhttp.onreadystatechange = function(){
+  if(xmlhttp.readyState==4 && xmlhttp.status==200){
+    //otetaan data talteen
+    var xmldoc = xmlhttp.responseXML;
+    //luodaan muuttuja johon teksti ja kuvaasetetaan
+    var title="";
+    //haetaan kaikki title tagit
+    var kaikkititlet = xmldoc.getElementsByTagName("Title");
+    // esitysten alkuajat
+    var kaikkiajat = xmldoc.getElementsByTagName("dttmShowStart");
+    //Pienet posteri kuvat
+    var kaikkikuvat = xmldoc.getElementsByTagName("EventSmallImagePortrait");
+
+    //tehdää silmukka jossa tulostetaan ensin elokuvan title, sitten alkuaika, sitten posteri sen alle.
+    for (i=0;i<kaikkititlet.length; i++){
+      //posteri tallennetaan muuttujaan kuva
+      var kuva = kaikkikuvat[i].childNodes[0].nodeValue;
+      //kuvat+="<img src="+kuva+" alt =virhe>";
+    title+="<u>"+kaikkititlet[i].childNodes[0].nodeValue + ", ALKAA "+ kaikkiajat[i].childNodes[0].nodeValue +"<br>"  + "<img src="+kuva+" alt =virhe class=kuva>" + "<br>" ;
+    //tulostetaan valittuun div-tagiin tiedot jotka on asetettu title muuttujaan
+    $("#valittuteatteri").html(title);
+  }
+
+  }
+
+}
+
+}
+
+function maxim(){
+  //api
+  var url = "https://www.finnkino.fi/xml/Schedule/?area=1032";
+  //Luodaan requesti
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.open("GET", url, true);
+  xmlhttp.send();
+
+  xmlhttp.onreadystatechange = function(){
+  if(xmlhttp.readyState==4 && xmlhttp.status==200){
+    //otetaan data talteen
+    var xmldoc = xmlhttp.responseXML;
+    //luodaan muuttuja johon teksti ja kuvaasetetaan
+    var title="";
+    //haetaan kaikki title tagit
+    var kaikkititlet = xmldoc.getElementsByTagName("Title");
+    // esitysten alkuajat
+    var kaikkiajat = xmldoc.getElementsByTagName("dttmShowStart");
+    //Pienet posteri kuvat
+    var kaikkikuvat = xmldoc.getElementsByTagName("EventSmallImagePortrait");
+
+    //tehdää silmukka jossa tulostetaan ensin elokuvan title, sitten alkuaika, sitten posteri sen alle.
+    for (i=0;i<kaikkititlet.length; i++){
+      //posteri tallennetaan muuttujaan kuva
+      var kuva = kaikkikuvat[i].childNodes[0].nodeValue;
+      //kuvat+="<img src="+kuva+" alt =virhe>";
+    title+="<u>"+kaikkititlet[i].childNodes[0].nodeValue + ", ALKAA "+ kaikkiajat[i].childNodes[0].nodeValue +"<br>"  + "<img src="+kuva+" alt =virhe class=kuva>" + "<br>" ;
+    //tulostetaan valittuun div-tagiin tiedot jotka on asetettu title muuttujaan
+    $("#valittuteatteri").html(title);
+  }
+
+  }
+
+  }
+
+  }
+function flamingo(){
+  //api
+  var url = "https://www.finnkino.fi/xml/Schedule/?area=1013";
+  //Luodaan requesti
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.open("GET", url, true);
+  xmlhttp.send();
+
+  xmlhttp.onreadystatechange = function(){
+  if(xmlhttp.readyState==4 && xmlhttp.status==200){
+    //otetaan data talteen
+    var xmldoc = xmlhttp.responseXML;
+    //luodaan muuttuja johon teksti ja kuvaasetetaan
+    var title="";
+    //haetaan kaikki title tagit
+    var kaikkititlet = xmldoc.getElementsByTagName("Title");
+    // esitysten alkuajat
+    var kaikkiajat = xmldoc.getElementsByTagName("dttmShowStart");
+    //Pienet posteri kuvat
+    var kaikkikuvat = xmldoc.getElementsByTagName("EventSmallImagePortrait");
+
+    //tehdää silmukka jossa tulostetaan ensin elokuvan title, sitten alkuaika, sitten posteri sen alle.
+    for (i=0;i<kaikkititlet.length; i++){
+      //posteri tallennetaan muuttujaan kuva
+      var kuva = kaikkikuvat[i].childNodes[0].nodeValue;
+      //kuvat+="<img src="+kuva+" alt =virhe>";
+    title+="<u>"+kaikkititlet[i].childNodes[0].nodeValue + ", ALKAA "+ kaikkiajat[i].childNodes[0].nodeValue +"<br>"  + "<img src="+kuva+" alt =virhe class=kuva>" + "<br>" ;
+    //tulostetaan valittuun div-tagiin tiedot jotka on asetettu title muuttujaan
+    $("#valittuteatteri").html(title);
+  }
+
+  }
+
+  }
+
+  }
+function fantasia(){
+  //api
+  var url = "https://www.finnkino.fi/xml/Schedule/?area=1015";
+  //Luodaan requesti
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+
+xmlhttp.onreadystatechange = function(){
+  if(xmlhttp.readyState==4 && xmlhttp.status==200){
+    //otetaan data talteen
+    var xmldoc = xmlhttp.responseXML;
+    //luodaan muuttuja johon teksti ja kuvaasetetaan
+    var title="";
+    //haetaan kaikki title tagit
+    var kaikkititlet = xmldoc.getElementsByTagName("Title");
+    // esitysten alkuajat
+    var kaikkiajat = xmldoc.getElementsByTagName("dttmShowStart");
+    //Pienet posteri kuvat
+    var kaikkikuvat = xmldoc.getElementsByTagName("EventSmallImagePortrait");
+
+    //tehdää silmukka jossa tulostetaan ensin elokuvan title, sitten alkuaika, sitten posteri sen alle.
+    for (i=0;i<kaikkititlet.length; i++){
+      //posteri tallennetaan muuttujaan kuva
+      var kuva = kaikkikuvat[i].childNodes[0].nodeValue;
+      //kuvat+="<img src="+kuva+" alt =virhe>";
+    title+="<u>"+kaikkititlet[i].childNodes[0].nodeValue + ", ALKAA "+ kaikkiajat[i].childNodes[0].nodeValue +"<br>"  + "<img src="+kuva+" alt =virhe class=kuva>" + "<br>" ;
+    //tulostetaan valittuun div-tagiin tiedot jotka on asetettu title muuttujaan
+    $("#valittuteatteri").html(title);
+  }
+
+  }
+
+}
+
+}
+function turkukino(){
+  //api
+  var url = "https://www.finnkino.fi/xml/Schedule/?area=1022";
+  //Luodaan requesti
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+
+xmlhttp.onreadystatechange = function(){
+  if(xmlhttp.readyState==4 && xmlhttp.status==200){
+    //otetaan data talteen
+    var xmldoc = xmlhttp.responseXML;
+    //luodaan muuttuja johon teksti ja kuvaasetetaan
+    var title="";
+    //haetaan kaikki title tagit
+    var kaikkititlet = xmldoc.getElementsByTagName("Title");
+    // esitysten alkuajat
+    var kaikkiajat = xmldoc.getElementsByTagName("dttmShowStart");
+    //Pienet posteri kuvat
+    var kaikkikuvat = xmldoc.getElementsByTagName("EventSmallImagePortrait");
+
+    //tehdää silmukka jossa tulostetaan ensin elokuvan title, sitten alkuaika, sitten posteri sen alle.
+    for (i=0;i<kaikkititlet.length; i++){
+      //posteri tallennetaan muuttujaan kuva
+      var kuva = kaikkikuvat[i].childNodes[0].nodeValue;
+      //kuvat+="<img src="+kuva+" alt =virhe>";
+    title+="<u>"+kaikkititlet[i].childNodes[0].nodeValue + ", ALKAA "+ kaikkiajat[i].childNodes[0].nodeValue +"<br>"  + "<img src="+kuva+" alt =virhe class=kuva>" + "<br>" ;
+    //tulostetaan valittuun div-tagiin tiedot jotka on asetettu title muuttujaan
+    $("#valittuteatteri").html(title);
+  }
+
+  }
+
+}
+
+}
+function plevna(){
+  //api
+  var url = "https://www.finnkino.fi/xml/Schedule/?area=1035";
+  //Luodaan requesti
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+
+xmlhttp.onreadystatechange = function(){
+  if(xmlhttp.readyState==4 && xmlhttp.status==200){
+    //otetaan data talteen
+    var xmldoc = xmlhttp.responseXML;
+    //luodaan muuttuja johon teksti ja kuvaasetetaan
+    var title="";
+    //haetaan kaikki title tagit
+    var kaikkititlet = xmldoc.getElementsByTagName("Title");
+    // esitysten alkuajat
+    var kaikkiajat = xmldoc.getElementsByTagName("dttmShowStart");
+    //Pienet posteri kuvat
+    var kaikkikuvat = xmldoc.getElementsByTagName("EventSmallImagePortrait");
+
+    //tehdää silmukka jossa tulostetaan ensin elokuvan title, sitten alkuaika, sitten posteri sen alle.
+    for (i=0;i<kaikkititlet.length; i++){
+      //posteri tallennetaan muuttujaan kuva
+      var kuva = kaikkikuvat[i].childNodes[0].nodeValue;
+      //kuvat+="<img src="+kuva+" alt =virhe>";
+    title+="<u>"+kaikkititlet[i].childNodes[0].nodeValue + ", ALKAA "+ kaikkiajat[i].childNodes[0].nodeValue +"<br>"  + "<img src="+kuva+" alt =virhe class=kuva>" + "<br>" ;
+    //tulostetaan valittuun div-tagiin tiedot jotka on asetettu title muuttujaan
+    $("#valittuteatteri").html(title);
+  }
+
+  }
+
+}
+
+}
+function cine(){
+  //api
+  var url = "https://www.finnkino.fi/xml/Schedule/?area=1034";
+  //Luodaan requesti
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+
+xmlhttp.onreadystatechange = function(){
+  if(xmlhttp.readyState==4 && xmlhttp.status==200){
+    //otetaan data talteen
+    var xmldoc = xmlhttp.responseXML;
+    //luodaan muuttuja johon teksti ja kuvaasetetaan
+    var title="";
+    //haetaan kaikki title tagit
+    var kaikkititlet = xmldoc.getElementsByTagName("Title");
+    // esitysten alkuajat
+    var kaikkiajat = xmldoc.getElementsByTagName("dttmShowStart");
+    //Pienet posteri kuvat
+    var kaikkikuvat = xmldoc.getElementsByTagName("EventSmallImagePortrait");
+
+    //tehdää silmukka jossa tulostetaan ensin elokuvan title, sitten alkuaika, sitten posteri sen alle.
+    for (i=0;i<kaikkititlet.length; i++){
+      //posteri tallennetaan muuttujaan kuva
+      var kuva = kaikkikuvat[i].childNodes[0].nodeValue;
+      //kuvat+="<img src="+kuva+" alt =virhe>";
+    title+="<u>"+kaikkititlet[i].childNodes[0].nodeValue + ", ALKAA "+ kaikkiajat[i].childNodes[0].nodeValue +"<br>"  + "<img src="+kuva+" alt =virhe class=kuva>" + "<br>" ;
+    //tulostetaan valittuun div-tagiin tiedot jotka on asetettu title muuttujaan
+    $("#valittuteatteri").html(title);
+  }
+
+  }
+
+}
+
+}
+function plaza(){
+  //api
+  var url = "https://www.finnkino.fi/xml/Schedule/?area=1018";
+  //Luodaan requesti
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.open("GET", url, true);
+xmlhttp.send();
+
+xmlhttp.onreadystatechange = function(){
+  if(xmlhttp.readyState==4 && xmlhttp.status==200){
+    //otetaan data talteen
+    var xmldoc = xmlhttp.responseXML;
+    //luodaan muuttuja johon teksti ja kuvaasetetaan
+    var title="";
+    //haetaan kaikki title tagit
+    var kaikkititlet = xmldoc.getElementsByTagName("Title");
+    // esitysten alkuajat
+    var kaikkiajat = xmldoc.getElementsByTagName("dttmShowStart");
+    //Pienet posteri kuvat
+    var kaikkikuvat = xmldoc.getElementsByTagName("EventSmallImagePortrait");
+
+    //tehdää silmukka jossa tulostetaan ensin elokuvan title, sitten alkuaika, sitten posteri sen alle.
+    for (i=0;i<kaikkititlet.length; i++){
+      //posteri tallennetaan muuttujaan kuva
+      var kuva = kaikkikuvat[i].childNodes[0].nodeValue;
+      //kuvat+="<img src="+kuva+" alt =virhe>";
+    title+="<u>"+kaikkititlet[i].childNodes[0].nodeValue + ", ALKAA "+ kaikkiajat[i].childNodes[0].nodeValue +"<br>"  + "<img src="+kuva+" alt =virhe class=kuva>" + "<br>" ;
+    //tulostetaan valittuun div-tagiin tiedot jotka on asetettu title muuttujaan
+    $("#valittuteatteri").html(title);
+  }
+
+  }
+
+}
+
+}
+
+  </script>
+</head>
+<body>
+  <div id="otsikko">
+    <h2>Valitse teatteri jonka ohjelmiston haluat</h2>
+  </div>
+  <div id="lista">
+<ul>
+  <li><button  onclick="itis();" type="button">Helsinki, Itis</button></li>
+  <li><button onclick="kino();" type="button">Helsinki, Kinopalatsi</button></li>
+  <li><button  onclick="maxim();" type="button">Helsinki, MAXIM</button></li>
+  <li><button  onclick="flamingo();" type="button">Vantaa, Flamingo</button></li>
+  <li><button onclick="fantasia();" type="button">Jyväskylä, Fantasia</button></li>
+  <li><button onclick="turkukino();" type="button">Turku, Kinopalatsi</button></li>
+  <li><button onclick="plevna();" type="button">Tampere, Plevna</button></li>
+  <li><button onclick="cine();" type="button">Tampere, Cine Atlas</button></li>
+  <li><button onclick="plaza();" type="button">Oulu, Plaza</button></li>
+
+</ul>
+  </div>
+  <div id="valittuteatteri">
+    <p><h3>Valitse teatteri niin näet sen päivän ohjelmiston ja alkamisajat!</h3>
+  </div>
+  <div id="kuvat">
+  </div>
+  </body>
+</html>
